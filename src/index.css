@@ -1,0 +1,51 @@
+/* 1. PRIMERO: Import de Tailwind */
+@import "tailwindcss";
+
+/* 2. SEGUNDO: Import de fuentes (ANTES de cualquier otra cosa) */
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* 3. TERCERO: Tema personalizado */
+@theme {
+  --color-ink: #03071E;
+  --color-ink-light: #0A0A2E;
+  --color-ember: #FFBA08;
+  --color-ember-dim: #FAA307;
+  --color-fire: #D00000;
+  --color-glow: #F48C06;
+  --color-ash: #6B6B7B;
+  --font-display: 'Khand', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* 4. CUARTO: Estilos base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ink);
+  color: var(--color-ember);
+  overflow-x: hidden;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-fire);
+  border-radius: 3px;
+}
+
+/* Selección de texto */
+::selection {
+  background: var(--color-fire);
+  color: var(--color-ember);
+}
