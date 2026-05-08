@@ -56,8 +56,8 @@ const About = () => {
       {/* ============================================ */}
       {/* CONTENIDO PRINCIPAL                           */}
       {/* ============================================ */}
-      <div className="relative z-10 w-full flex justify-end">
-        <div className="max-w-4xl text-right">
+      <div className="relative z-10 w-full flex justify-center md:justify-end">
+        <div className="w-full max-w-xl md:max-w-2xl text-left md:text-right">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ const About = () => {
               duration: 0.7,
               ease: "easeOut",
             }}
-            className="h-0.5 bg-fire mb-10 ml-auto"
+            className="h-0.5 bg-fire mb-10 md:ml-auto"
           />
 
           <motion.p
@@ -100,7 +100,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="max-w-xl text-base md:text-lg text-ember-dim leading-relaxed ml-auto"
+            className="max-w-xl text-base md:text-lg text-ember-dim leading-relaxed md:ml-auto"
           >
             Estudiante de Desarrollo de Aplicaciones Web. Construyo experiencias
             digitales donde el diseño, la interacción y una arquitectura sólida
