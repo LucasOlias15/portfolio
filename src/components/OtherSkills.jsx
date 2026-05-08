@@ -55,7 +55,7 @@ const OtherSkills = () => {
           className="text-center mb-10"
         >
           <span className="font-mono text-xs md:text-sm text-fire/60 tracking-[0.3em] uppercase">
-            Otras tecnologías y herramientas que he utilizado
+            Otras tecnologías y herramientas que también he utilizado
           </span>
         </motion.div>
 
@@ -77,9 +77,9 @@ const OtherSkills = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * index, duration: 0.4 }}
                 whileHover={{ y: -2 }}
-                className="flex items-center gap-2 px-4 py-2 border border-ash/15 bg-ink-light/30 text-ash/70 text-xs font-mono tracking-wider uppercase cursor-default select-none"
+                className="flex items-center gap-2 px-4 py-2 border-2 bg-ink-light/30 text-ash/70 text-xs font-mono tracking-wider uppercase cursor-default select-none"
                 style={{
-                  borderColor: `${skill.accent}30`,
+                  borderColor: `${skill.accent}50`,
                 }}
               >
                 <Icon size={14} color={skill.accent} />
