@@ -48,7 +48,7 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="min-h-screen flex flex-col items-center justify-center relative px-5 md:px-20"
+      className="min-h-screen flex flex-col items-center justify-center relative px-6 md:px-16 lg:px-24"
     >
       {/* PARTÍCULAS DE FONDO (SOLO MÓVIL) */}
       <div className="md:hidden absolute inset-0 pointer-events-none overflow-hidden">
@@ -228,13 +228,37 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.4, duration: 0.6 }}
-            className="flex gap-3 flex-wrap justify-center md:justify-start"
+            className="
+    flex flex-wrap
+    gap-3 md:gap-5
+    justify-center md:justify-start
+    max-w-sm md:max-w-none
+  "
           >
             {["Full-Stack", "React", "Node.js", "UI/UX"].map((tag) => (
-              <span key={tag}>
+              <span
+                key={tag}
+                className="
+        flex justify-center
+        w-[calc(50%-0.375rem)]   
+        sm:w-auto                
+      "
+              >
                 <CascadeText
                   text={tag}
-                  className="font-mono text-xs text-ash border border-ash/30 px-4 py-2 tracking-wider uppercase hover:border-fire/50 hover:text-ember transition-colors duration-300"
+                  className="
+          block w-full sm:w-auto
+          text-center
+          font-mono text-xs
+          text-ash
+          border border-ash/30
+          px-4 py-2
+          tracking-wider
+          uppercase
+          hover:border-fire/50
+          hover:text-ember
+          transition-colors duration-300
+        "
                 />
               </span>
             ))}
@@ -245,31 +269,35 @@ const Hero = () => {
           <InkBlob />
         </div>
       </div>
-{/* INDICADOR DE SCROLL */}
-<motion.div
-  initial={{ opacity: 0, y: 10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 3.5, duration: 0.8 }}
-  className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
->
-  <span className="font-mono text-[11px] tracking-[0.35em] uppercase text-ash/60">
-    Desliza para explorar
-  </span>
-  <motion.div
-    animate={{ y: [0, 8, 0] }}
-    transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-  >
-    <svg
-      className="w-5 h-5 text-ember/70"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-    </svg>
-  </motion.div>
-</motion.div>
+      {/* INDICADOR DE SCROLL */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 3.5, duration: 0.8 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+      >
+        <span className="font-mono text-[11px] tracking-[0.20em] uppercase text-ash/60">
+          Desliza para explorar
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <svg
+            className="w-5 h-5 text-ember/70"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

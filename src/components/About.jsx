@@ -15,8 +15,7 @@ const About = () => {
   return (
     <section
       id="sobre-mí"
-      className="relative min-h-[70vh] overflow-hidden flex items-center px-6 md:px-20 py-20 mb-20"
-    >
+className="relative min-h-[50vh] md:min-h-[70vh] overflow-hidden flex items-center px-6 md:px-16 lg:px-24 py-20 mb-10 md:mb-20"    >
       {/* ============================================ */}
       {/* FONDO: CINTAS DE TEXTO ANIMADAS              */}
       {/* ============================================ */}
@@ -56,8 +55,8 @@ const About = () => {
       {/* ============================================ */}
       {/* CONTENIDO PRINCIPAL                           */}
       {/* ============================================ */}
-      <div className="relative z-10 w-full flex justify-center md:justify-end">
-        <div className="w-full max-w-xl md:max-w-2xl text-left md:text-right">
+      <div className="relative z-10 w-full flex justify-center">
+        <div className="w-full max-w-xl md:max-w-lg lg:max-w-xl text-right md:text-right md:ml-auto">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +78,7 @@ const About = () => {
             }}
             className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-ember mb-8 mix-blend-lighten"
           >
-            <ScrambleOnHover text={"Código\nque se siente."} className="" />
+            <ScrambleOnHover text={"Código\nque se siente"} className="" />
           </motion.h2>
 
           <motion.div

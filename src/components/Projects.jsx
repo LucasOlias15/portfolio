@@ -50,7 +50,7 @@ const Projects = () => {
             <div className="relative overflow-hidden">
               {/* Aquí irá tu captura. Cambia el src por la ruta real */}
               <img
-                src="../../public/LocalMarkt.png"
+                src="./../LocalMarkt.png"
                 alt="LocalMarkt - Marketplace local"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               />
@@ -91,7 +91,7 @@ const Projects = () => {
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1.5 text-[10px] md:text-xs font-mono uppercase tracking-wider text-ash/70 border border-ash/15 rounded-full"
+                    className="px-3 py-1.5 text-[10px] md:text-xs font-mono tracking-wider text-ash/70 border border-ash/15 rounded-full"
                   >
                     {tech}
                   </span>

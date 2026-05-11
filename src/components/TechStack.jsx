@@ -9,7 +9,7 @@ import {
   SiJavascript,
   SiOpenjdk,
   SiHtml5,
-  SiCss
+  SiCss,
 } from "react-icons/si";
 
 // =============================================
@@ -54,30 +54,23 @@ const techCards = [
     accent: "#ED8B00",
     icon: SiOpenjdk,
   },
-  { name: "HTML", category: "Markup Language", accent: "#F05032", icon: SiHtml5 },
+  {
+    name: "HTML",
+    category: "Markup Language",
+    accent: "#F05032",
+    icon: SiHtml5,
+  },
   { name: "CSS", category: "Styling Language", accent: "#1572B6", icon: SiCss },
 ];
 
 const IntroCard = ({ scrollYProgress }) => {
   const localProgress = useTransform(scrollYProgress, [0, 0.12], [0, 1]);
 
-  const opacity = useTransform(
-    localProgress,
-    [0, 0.15, 0.85, 1],
-    [1, 1, 1, 0]
-  );
+  const opacity = useTransform(localProgress, [0, 0.15, 0.85, 1], [1, 1, 1, 0]);
 
-  const scale = useTransform(
-    localProgress,
-    [0, 1],
-    [1, 0.92]
-  );
+  const scale = useTransform(localProgress, [0, 1], [1, 0.92]);
 
-  const y = useTransform(
-    localProgress,
-    [0, 1],
-    [0, -80]
-  );
+  const y = useTransform(localProgress, [0, 1], [0, -80]);
 
   return (
     <motion.div
@@ -100,10 +93,10 @@ const IntroCard = ({ scrollYProgress }) => {
         </h2>
 
         <p className="text-ash text-sm md:text-base leading-relaxed max-w-xl mx-auto">
-            Las tecnologías aparecen dinámicamente al hacer scroll.
+          Las tecnologías aparecen dinámicamente al hacer scroll.
         </p>
 
-        <div className="h-[1px] w-[180px] bg-fire/50 mx-auto mt-10" />
+        <div className="h-px w-45 bg-fire/50 mx-auto mt-10" />
       </div>
     </motion.div>
   );
@@ -167,7 +160,7 @@ const TechCard = ({ tech, index, total, scrollYProgress }) => {
       className="absolute flex items-center justify-center"
     >
       <div
-        className="relative w-[280px] h-[340px] md:w-[380px] md:h-[440px] border overflow-hidden flex flex-col justify-between p-8 md:p-10"
+        className="relative w-70 h-85 md:w-95 md:h-110 border overflow-hidden flex flex-col justify-between p-8 md:p-10"
         style={{
           borderColor: `${tech.accent}60`,
           background: "rgba(3,7,30,0.85)",
@@ -231,14 +224,14 @@ const TechStack = () => {
       ref={sectionRef}
       id="stack"
       className="relative bg-ink"
-      style={{ height: "400vh" }}
+      className="relative bg-ink h-[500vh] md:h-[400vh]"
     >
       {/* ============================================ */}
       {/* STICKY CON LAS TARJETAS                       */}
       {/* ============================================ */}
       <div className="sticky top-0 h-screen overflow-hidden flex items-center justify-center">
         {/* Grid decorativa de fondo */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:80px_80px]" />
+        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-size-[80px_80px]" />
 
         <IntroCard scrollYProgress={scrollYProgress} />
         {/* Tarjetas animadas */}
@@ -255,7 +248,7 @@ const TechStack = () => {
         </div>
 
         {/* Barra de progreso inferior */}
-        <div className="absolute bottom-10 left-6 md:left-20 right-6 md:right-20 h-[2px] bg-fire/10">
+        <div className="absolute bottom-10 left-6 md:left-20 right-6 md:right-20 h-0.5 bg-fire/10">
           <motion.div
             className="h-full bg-fire"
             style={{
