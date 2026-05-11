@@ -38,9 +38,9 @@ const NavSection = () => {
         {/* Línea superior */}
         <div className="w-full h-px bg-linear-to-r from-transparent via-ember/40 to-transparent" />
 
-        <div className="relative backdrop-blur-2xl bg-ink/70">
+        <div className="relative bg-ink">
           {/* Glow interior */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,186,8,0.03),transparent_70%)] pointer-events-none" />
+          <div className="absolute inset-0 pointer-events-none" />
 
           <div className="relative max-w-5xl mx-auto px-8 py-5 flex justify-center items-center gap-20">
             {navLinks.map((link, index) => {
@@ -113,7 +113,7 @@ const NavSection = () => {
                       <span
                         className={`
                     font-mono text-xs uppercase
-                    tracking-[0.28em]
+                    tracking-wider
                     transition-all duration-500
                     ${isActive ? "text-ember" : "text-glow/50"}
                   `}
