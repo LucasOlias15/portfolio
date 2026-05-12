@@ -48,10 +48,10 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="min-h-screen flex flex-col items-center justify-center relative px-6 md:px-16 lg:px-24"
+      className="min-h-screen flex flex-col items-center justify-center relative w-full max-w-7xl mx-auto px-6 md:px-16"
     >
-      {/* PARTÍCULAS DE FONDO (SOLO MÓVIL) */}
-      <div className="md:hidden absolute inset-0 pointer-events-none overflow-hidden">
+      {/* Partículas de fondo solo en Móvil*/}
+      <div className="flex flex-col md:flex-row items-center justify-between w-full gap-6 md:gap-20">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}

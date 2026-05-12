@@ -11,8 +11,7 @@ const InkBlob = () => {
       ref={containerRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      // 1. EL CONTENEDOR ES GIGANTE: Pasamos de w-72 a medidas colosales para ocupar la zona derecha
-      className="relative max-w-60 h-70 md:w-150 md:h-150 lg:w-200 lg:h-200 flex items-center justify-center transition-transform duration-500 xl:scale-125"
+      className="relative w-60 h-60 md:w-80 md:h-80 lg:w-96 lg:h-96 flex items-center justify-center transition-transform duration-500"
       style={{ willChange: "transform, filter" }}
     >
       {/* FILTRO SVG GOOEY (Sin cambios) */}
@@ -44,7 +43,7 @@ const InkBlob = () => {
       >
         {/* MANCHA CENTRAL */}
         <motion.div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-55 h-55 md:w-75 md:h-75 lg:w-85 lg:h-85 bg-fire rounded-full mix-blend-screen opacity-80"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-65 h-65 md:w-85 md:h-85 lg:w-100 lg:h-100 bg-fire rounded-full mix-blend-screen opacity-80"
           animate={{
             scale: [1, 1.1, 0.95, 1],
             rotate: isHovered ? [0, 45] : [0, 360],
@@ -64,7 +63,7 @@ const InkBlob = () => {
 
         {/* MANCHA EXTERNA ROJA */}
         <motion.div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-34 h-34 md:w-40 md:h-40 lg:w-40 lg:h-40 bg-fire rounded-full mix-blend-screen opacity-60"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-38 h-38 md:w-45 md:h-45 lg:w-45 lg:h-45 bg-fire rounded-full mix-blend-screen opacity-60"
           animate={{
             // Distancias de movimiento mucho más largas para cubrir el nuevo contenedor
             x: [0, 150, -100, 180, 0],
@@ -80,7 +79,7 @@ const InkBlob = () => {
 
         {/* MANCHA SECUNDARIA INTERNA (Escalada)[cite: 20] */}
         <motion.div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-45 h-45 md:w-60 md:h-60 lg:w-60 lg:h-60 bg-glow rounded-full mix-blend-screen opacity-70"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-50 h-50 md:w-65 md:h-65 lg:w-65 lg:h-65 bg-glow rounded-full mix-blend-screen opacity-70"
           animate={{
             x: [0, 80, -60, 0],
             y: [-60, 0, 80, -60],
@@ -94,13 +93,11 @@ const InkBlob = () => {
       </motion.div>
 
       {/* 2. CONTENEDOR DEL TEXTO POSICIONADO EN LA PARTE SUPERIOR */}
-<div className="absolute md:top-[40%] left-25 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
+<div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none">
         <MagneticPhrase isHovered={isHovered} text="Bienvenido" />
         <MagneticPhrase isHovered={isHovered} text="a mi" />
         <MagneticPhrase isHovered={isHovered} text="portfolio" />
       </div>
-
-     
     </div>
   );
 };

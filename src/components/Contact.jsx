@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { FiSmartphone, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiSmartphone, FiLinkedin, FiMail, FiDownload } from "react-icons/fi";
 import CodeField from "./CodeField";
 
 const Contact = () => {
@@ -123,11 +123,11 @@ const Contact = () => {
           >
             {/* Separador */}
             <div className="flex items-center gap-4 mb-6">
-              <div className="flex-1 h-px bg-ash/15" />
-              <p className="font-mono text-xs text-ash/40 tracking-wider uppercase whitespace-nowrap">
+              <div className="flex-1 h-px bg-ash/40" />
+              <p className="font-mono text-xs text-ash/60 tracking-wider uppercase whitespace-nowrap">
                 También puedes escribirme
               </p>
-              <div className="flex-1 h-px bg-ash/15" />
+              <div className="flex-1 h-px bg-ash/40" />
             </div>
 
             <a
@@ -136,6 +136,25 @@ const Contact = () => {
             >
               lucasolias15@gmail.com
             </a>
+
+            {/* DESCARGAR CV */}
+            <div className="flex items-center gap-4 mb-6">
+              <div className="flex-1 h-px bg-ash/40" />
+              <div className="flex items-center gap-2 whitespace-nowrap">
+                <span className="font-mono text-xs text-ash/60 tracking-wider uppercase">
+                  O descarga mi CV
+                </span>
+                <a
+                  href="/cv-lucas-olias.pdf"
+                  download
+                  className="font-mono text-xs text-ember/60 hover:text-ember transition-colors duration-300 uppercase tracking-wider flex items-center gap-1"
+                >
+                  aquí
+                  <FiDownload size={14} />
+                </a>
+              </div>
+              <div className="flex-1 h-px bg-ash/40" />
+            </div>
 
             <div className="flex justify-center gap-6">
               {/* Teléfono con tooltip */}

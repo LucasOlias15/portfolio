@@ -24,7 +24,7 @@ const About = () => {
   return (
     <section
       id="sobre-mí"
-      className="relative min-h-[50vh] md:min-h-[70vh] overflow-hidden flex items-center px-6 md:px-16 lg:px-24 py-20 mb-10 md:mb-20"
+      className="relative min-h-[50vh] md:min-h-[70vh] overflow-hidden flex items-center w-full max-w-7xl mx-auto px-6 md:px-16 py-20 mb-10 md:mb-20"
     >
       {/* ============================================ */}
       {/* FONDO: CINTAS DE TEXTO ANIMADAS              */}
