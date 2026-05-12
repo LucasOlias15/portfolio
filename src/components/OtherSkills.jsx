@@ -77,12 +77,12 @@ const OtherSkills = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * index, duration: 0.4 }}
                 whileHover={{ y: -2 }}
-                className="flex items-center gap-2 px-4 py-2 border-2 bg-ink-light/30 text-ash/70 text-xs font-mono tracking-wider uppercase cursor-default select-none"
+                className="flex items-center gap-2 px-4 py-2 border-2 bg-ink-light/30 text-ash/70 text-sm font-mono tracking-wider uppercase cursor-default select-none"
                 style={{
                   borderColor: `${skill.accent}50`,
                 }}
               >
-                <Icon size={14} color={skill.accent} />
+                <Icon size={16} color={skill.accent} />
                 <span
                   className="transition-colors duration-300"
                   style={{ color: skill.accent }}
@@ -94,14 +94,6 @@ const OtherSkills = () => {
           })}
         </motion.div>
 
-        {/* Línea decorativa inferior */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="h-[1px] w-full max-w-[200px] mx-auto mt-14 bg-gradient-to-r from-transparent via-ember/10 to-transparent"
-        />
       </div>
     </section>
   );

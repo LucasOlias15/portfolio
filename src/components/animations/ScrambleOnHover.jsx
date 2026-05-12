@@ -67,7 +67,7 @@ const ScrambleOnHover = ({ text, className = "" }) => {
       className={`inline-block ${className}`}
     >
       {lines.map((line, lineIndex) => (
-        <span key={lineIndex} className="block">
+<span key={lineIndex} className="block whitespace-nowrap">
           {line.split("").map((char, charIndex) => {
             const globalIndex =
               lines.slice(0, lineIndex).reduce((acc, l) => acc + l.length, 0) +
@@ -83,7 +83,7 @@ const ScrambleOnHover = ({ text, className = "" }) => {
                     el.dataset.original = char;
                   }
                 }}
-                className="inline-block transition-all duration-150"
+className="inline-block transition-all duration-150 whitespace-nowrap"
               >
                 {char === " " ? "\u00A0" : char}
               </span>

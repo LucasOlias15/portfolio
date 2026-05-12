@@ -276,7 +276,7 @@ const Hero = () => {
         transition={{ delay: 3.5, duration: 0.8 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
       >
-        <span className="font-mono text-[11px] tracking-[0.20em] uppercase text-ash/60">
+        <span className="font-mono text-[11px] tracking-[0.20em] uppercase text-ash/80">
           Desliza para explorar
         </span>
         <motion.div

@@ -50,11 +50,19 @@ const Projects = () => {
             <div className="relative overflow-hidden">
               {/* Aquí irá tu captura. Cambia el src por la ruta real */}
               <img
+
+              />
+              <picture>
+                <source
+                  media="(width < 800px)"
+                  srcset="./../LocalMarktMobileScreen.png"
+                />
+                <img
                 src="./../LocalMarkt.png"
                 alt="LocalMarkt - Marketplace local"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-              />
-
+                />
+              </picture>
               {/* Overlay degradado inferior */}
               <div className="absolute inset-0 bg-linear-to-t " />
 
@@ -140,9 +148,9 @@ const Projects = () => {
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-br from-ember/2 to-fire/2" />
 
               <div className="text-center">
-                <span className="font-mono text-xs tracking-[0.3em] uppercase text-ash/45 flex flex-col items-center gap-2">
+                <span className="font-mono text-xs tracking-[0.3em] uppercase text-ash/50 flex flex-col items-center gap-2">
                   {label}
-                  <FiSettings size={16} className="text-ash/30" />
+                  <FiSettings size={16} className="text-ash/50" />
                 </span>
               </div>
             </motion.div>

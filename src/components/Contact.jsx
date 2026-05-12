@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { FiSmartphone, FiLinkedin, FiMail } from "react-icons/fi";
 import CodeField from "./CodeField";
 
 const Contact = () => {
+  const [showPhone, setShowPhone] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí irá la lógica de envío (FormSubmit, EmailJS, etc.)
@@ -19,11 +21,10 @@ const Contact = () => {
       </div>
 
       {/* ── OVERLAY: solo oscurece, sin backdrop-blur para no matar las partículas ── */}
-      <div className="absolute inset-0 z-[1] bg-ink/55" />
+      <div className="absolute inset-0 z-1 bg-ink/55" />
 
       {/* ── CONTENIDO ── */}
       <div className="relative z-10 max-w-xl mx-auto px-6">
-
         {/* ETIQUETA */}
         <motion.span
           initial={{ opacity: 0, y: 20 }}
@@ -45,7 +46,8 @@ const Contact = () => {
           style={{
             background: "rgba(10, 10, 46, 0.55)",
             border: "1px solid rgba(255, 186, 8, 0.08)",
-            boxShadow: "0 0 60px rgba(255,186,8,0.04), 0 24px 64px rgba(0,0,0,0.4)",
+            boxShadow:
+              "0 0 60px rgba(255,186,8,0.04), 0 24px 64px rgba(0,0,0,0.4)",
             // El form captura eventos; el canvas queda libre alrededor
             pointerEvents: "auto",
           }}
@@ -85,21 +87,21 @@ const Contact = () => {
               name="name"
               placeholder="Tu nombre"
               required
-              className="w-full bg-white/[0.04] border border-ember/15 rounded-lg px-4 py-3 font-body text-ember placeholder:text-ash/40 focus:outline-none focus:border-ember/50 focus:bg-white/[0.07] transition-all duration-300"
+              className="w-full bg-white/4 border border-ember/15 rounded-lg px-4 py-3 font-body text-ember placeholder:text-ash/40 focus:outline-none focus:border-ember/50 focus:bg-white/[0.07] transition-all duration-300"
             />
             <input
               type="email"
               name="email"
               placeholder="Tu email"
               required
-              className="w-full bg-white/[0.04] border border-ember/15 rounded-lg px-4 py-3 font-body text-ember placeholder:text-ash/40 focus:outline-none focus:border-ember/50 focus:bg-white/[0.07] transition-all duration-300"
+              className="w-full bg-white/4 border border-ember/15 rounded-lg px-4 py-3 font-body text-ember placeholder:text-ash/40 focus:outline-none focus:border-ember/50 focus:bg-white/[0.07] transition-all duration-300"
             />
             <textarea
               name="message"
               rows={4}
               placeholder="¿En qué estás pensando?"
               required
-              className="w-full bg-white/[0.04] border border-ember/15 rounded-lg px-4 py-3 font-body text-ember placeholder:text-ash/40 focus:outline-none focus:border-ember/50 focus:bg-white/[0.07] transition-all duration-300 resize-none"
+              className="w-full bg-white/4 border border-ember/15 rounded-lg px-4 py-3 font-body text-ember placeholder:text-ash/40 focus:outline-none focus:border-ember/50 focus:bg-white/[0.07] transition-all duration-300 resize-none"
             />
             <div className="pt-1 text-center">
               <button
@@ -136,14 +138,62 @@ const Contact = () => {
             </a>
 
             <div className="flex justify-center gap-6">
-              <a
-                href=""
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-ash/35 hover:text-fire/60 transition-colors duration-300"
-              >
-                <FiSmartphone size={22} />
-              </a>
+              {/* Teléfono con tooltip */}
+              <div className="relative">
+                <button
+                  onClick={() => setShowPhone(!showPhone)}
+                  className="text-ash/35 hover:text-fire/60 transition-colors duration-300"
+                >
+                  <FiSmartphone size={22} />
+                </button>
+
+                {/* Tooltip */}
+                {showPhone && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 bg-ink-light/95 backdrop-blur-lg border border-ember/20 rounded-xl px-4 py-3 shadow-2xl z-50"
+                  >
+                    {/* Flechita */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-3 h-3 bg-ink-light border-r border-b border-ember/20 rotate-45" />
+
+                    <div className="flex flex-col gap-2 whitespace-nowrap">
+                      <span className="font-mono text-xs text-ember/80 tracking-wider text-center">
+                        +34 640 799 835
+                      </span>
+                      <div className="flex gap-3 justify-center">
+                        <a
+                          href="tel:+34640799835"
+                          className="font-mono text-[10px] text-ash/60 hover:text-ember transition-colors uppercase tracking-wider"
+                        >
+                          Llamar
+                        </a>
+                        <span className="text-ash/20">|</span>
+                        <a
+                          href="https://wa.me/346040799835"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-[10px] text-ash/60 hover:text-ember transition-colors uppercase tracking-wider"
+                        >
+                          WhatsApp
+                        </a>
+                        <span className="text-ash/20">|</span>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText("+34640799835 ");
+                            setShowPhone(false);
+                          }}
+                          className="font-mono text-[10px] text-ash/60 hover:text-ember transition-colors uppercase tracking-wider"
+                        >
+                          Copiar
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </div>
               <a
                 href="https://www.linkedin.com/in/lucas-olias-morilla-852336258/"
                 target="_blank"
@@ -164,9 +214,7 @@ const Contact = () => {
       </div>
 
       {/* Label "hover to interact" — fuera de la card, esquina inferior derecha */}
-      <div
-        className="absolute bottom-5 right-6 z-10 pointer-events-none"
-      >
+      <div className="absolute bottom-5 right-6 z-10 pointer-events-none">
         <span
           style={{
             fontFamily: "'JetBrains Mono', 'Fira Mono', monospace",

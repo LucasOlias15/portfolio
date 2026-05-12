@@ -224,7 +224,7 @@ const TechStack = () => {
       ref={sectionRef}
       id="stack"
       className="relative bg-ink"
-      className="relative bg-ink h-[500vh] md:h-[400vh]"
+      className="relative bg-ink h-[500vh] md:h-[500vh]"
     >
       {/* ============================================ */}
       {/* STICKY CON LAS TARJETAS                       */}

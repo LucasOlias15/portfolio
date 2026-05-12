@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ScrambleOnHover from "./animations/ScrambleOnHover";
+import ProfilePhoto from "./ProfilePhoto";
 
 const ribbonTexts = [
   "REACT — NODE.JS — PHP — MYSQL — TAILWIND — FRAMER MOTION —",
@@ -12,10 +13,19 @@ const ribbonTexts = [
 
 const About = () => {
   const [isNameHovered, setIsNameHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <section
       id="sobre-mí"
-className="relative min-h-[50vh] md:min-h-[70vh] overflow-hidden flex items-center px-6 md:px-16 lg:px-24 py-20 mb-10 md:mb-20"    >
+      className="relative min-h-[50vh] md:min-h-[70vh] overflow-hidden flex items-center px-6 md:px-16 lg:px-24 py-20 mb-10 md:mb-20"
+    >
       {/* ============================================ */}
       {/* FONDO: CINTAS DE TEXTO ANIMADAS              */}
       {/* ============================================ */}
@@ -55,8 +65,20 @@ className="relative min-h-[50vh] md:min-h-[70vh] overflow-hidden flex items-cent
       {/* ============================================ */}
       {/* CONTENIDO PRINCIPAL                           */}
       {/* ============================================ */}
-      <div className="relative z-10 w-full flex justify-center">
-        <div className="w-full max-w-xl md:max-w-lg lg:max-w-xl text-right md:text-right md:ml-auto">
+      <div className="relative z-10 w-full grid md:grid-cols-5 gap-10 items-center">
+        {/* COLUMNA IZQUIERDA: FOTO (1/5) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          className="hidden md:flex justify-center md:col-span-2 mt-16"
+        >
+          <ProfilePhoto />
+        </motion.div>
+
+        {/* COLUMNA DERECHA: TEXTO (3/5) */}
+        <div className="md:col-span-3 w-full max-w-xl md:max-w-lg lg:max-w-xl text-right md:text-right md:ml-auto">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,20 +94,29 @@ className="relative min-h-[50vh] md:min-h-[70vh] overflow-hidden flex items-cent
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15, duration: 0.8 }}
-            onMouseEnter={() => setIsNameHovered(true)}
+            onMouseEnter={() => {
+              if (!isMobile) setIsNameHovered(true);
+            }}
             onMouseLeave={() => {
-              setIsNameHovered(false);
+              if (!isMobile) setIsNameHovered(false);
             }}
             className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-ember mb-8 mix-blend-lighten"
           >
-            <ScrambleOnHover text={"Código\nque se siente"} className="" />
+            <span className="hidden md:inline">
+              <ScrambleOnHover text={"Código\nque se siente"} className="" />
+            </span>
+            <span className="md:hidden">
+              Código
+              <br />
+              que se siente
+            </span>{" "}
           </motion.h2>
 
           <motion.div
             initial={{ width: 0 }}
             viewport={{ once: true }}
             animate={{
-              width: isNameHovered ? "590px" : "280px",
+              width: isMobile ? "340px" : isNameHovered ? "590px" : "280px",
             }}
             transition={{
               duration: 0.7,
