@@ -16,7 +16,7 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-mono text-xs md:text-sm text-fire/60 tracking-[0.4em] uppercase block mb-6"
+          className="font-mono text-xs md:text-sm text-fire/80 tracking-[0.4em] uppercase block mb-6"
         >
           Proyectos
         </motion.span>

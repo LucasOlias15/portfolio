@@ -54,7 +54,7 @@ const OtherSkills = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <span className="font-mono text-xs md:text-sm text-fire/60 tracking-[0.3em] uppercase">
+          <span className="font-mono text-xs md:text-sm text-fire/80 tracking-[0.3em] uppercase">
             Otras tecnologías y herramientas que también he utilizado
           </span>
         </motion.div>

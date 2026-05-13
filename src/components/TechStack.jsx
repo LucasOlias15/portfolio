@@ -82,7 +82,7 @@ const IntroCard = ({ scrollYProgress }) => {
       className="absolute flex items-center justify-center"
     >
       <div className="text-center max-w-2xl px-6">
-        <span className="font-mono text-xs md:text-sm uppercase tracking-[0.45em] text-fire/50 block mb-6">
+        <span className="font-mono text-xs md:text-sm uppercase tracking-[0.45em] text-fire/80 block mb-6">
           tech - Stack
         </span>
 

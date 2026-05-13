@@ -31,7 +31,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-mono text-xs md:text-sm text-fire/60 tracking-[0.4em] uppercase block mb-12 text-center"
+          className="font-mono text-xs md:text-sm text-fire/80 tracking-[0.4em] uppercase block mb-12 text-center"
         >
           Contacto
         </motion.span>
@@ -145,7 +145,7 @@ const Contact = () => {
                   O descarga mi CV
                 </span>
                 <a
-                  href="/cv-lucas-olias.pdf"
+                  href="/Lucas Olías Morilla CV.pdf"
                   download
                   className="font-mono text-xs text-ember/60 hover:text-ember transition-colors duration-300 uppercase tracking-wider flex items-center gap-1"
                 >
