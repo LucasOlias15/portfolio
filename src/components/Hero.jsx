@@ -50,49 +50,8 @@ const Hero = () => {
       id="inicio"
       className="min-h-screen flex flex-col items-center justify-center relative w-full max-w-7xl mx-auto px-6 md:px-16"
     >
-      {/* Partículas de fondo solo en Móvil*/}
-      <div className="flex flex-col md:flex-row items-center justify-between w-full gap-6 md:gap-20">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1.5 h-1.5 rounded-full bg-ember/30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0, 0.8, 0],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 4,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-6 md:gap-20">
         <div className="flex-1 relative">
-          {/* GLOW DETRÁS DE LA FRASE (SOLO MÓVIL) */}
-
-          <motion.div
-            className="md:hidden absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-3xl pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(208,0,0,0.15) 0%, transparent 70%)",
-            }}
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.5, 0.8, 0.5],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
           {/* FRASE PRINCIPAL */}
           <motion.h1
             className="font-display text-[2em] sm:text-[2.5em] md:text-[3.6em] lg:text-[4.2em] font-bold leading-tight text-ember mb-6 select-none"
